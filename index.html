@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Babcock Keke - Campus Ride Booking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="app-title">BU-KEKS</h1>
+                <p class="app-subtitle">Quick campus transport</p>
+            </div>
+            <div class="user-profile">
+                <span class="user-name">Welcome Student</span>
+                <div class="user-avatar">B</div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Quick Order Section -->
+            <section class="quick-order">
+                <h2 class="section-title">Book Your Ride</h2>
+                
+                <div class="booking-card">
+                    <!-- Pickup Location -->
+                    <div class="form-group">
+                        <label for="pickup">Pickup Location</label>
+                        <div class="location-input-wrapper">
+                            <span class="location-icon">📍</span>
+                            <input type="text" id="pickup" placeholder="Select pickup point..." class="location-input">
+                        </div>
+                        <div class="location-dropdown" id="pickupDropdown">
+                            <div class="location-option" data-location="Gate">Gate</div>
+                            <div class="location-option" data-location="Laz Otti Library">Laz Otti Library</div>
+                            <div class="location-option" data-location="Samuel Akande">Samuel Akande</div>
+                            <div class="location-option" data-location="Emerald">Emerald</div>
+                            <div class="location-option" data-location="SAT">SAT</div>
+                            <div class="location-option" data-location="New Horizons">New Horizons</div>
+                            <div class="location-option" data-location="BUSA">BUSA</div>
+                            <div class="location-option" data-location="Sappire">Sappire</div>
+
+                        </div>
+                    </div>
+
+                    <!-- Destination -->
+                    <div class="form-group">
+                        <label for="destination">Destination</label>
+                        <div class="location-input-wrapper">
+                            <span class="location-icon">🎯</span>
+                            <input type="text" id="destination" placeholder="Select destination..." class="location-input">
+                        </div>
+                        <div class="location-dropdown" id="destinationDropdown">
+                            <div class="location-option" data-location="Main Gate">Main Gate</div>
+                            <div class="location-option" data-location="Library">Library</div>
+                            <div class="location-option" data-location="Female Hostel">Female Hostel</div>
+                            <div class="location-option" data-location="Male Hostel">Male Hostel</div>
+                            <div class="location-option" data-location="Cafeteria">Cafeteria</div>
+                            <div class="location-option" data-location="Sports Complex">Sports Complex</div>
+                            <div class="location-option" data-location="Admin Building">Admin Building</div>
+                        </div>
+                    </div>
+
+                    <!-- Date & Time -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="date" id="date" class="date-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Time</label>
+                            <input type="time" id="time" class="time-input">
+                        </div>
+                    </div>
+
+                    <!-- Passengers -->
+                    <div class="form-group">
+                        <label for="passengers">Number of Passengers</label>
+                        <div class="passenger-selector">
+                            <button class="passenger-btn minus-btn" id="minusBtn">−</button>
+                            <input type="number" id="passengers" value="1" min="1" max="4" class="passenger-input" readonly>
+                            <button class="passenger-btn plus-btn" id="plusBtn">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Ride Type -->
+                    <div class="form-group">
+                        <label>Ride Type</label>
+                        <div class="ride-type-selector">
+                            <input type="radio" id="standard" name="rideType" value="Standard" checked>
+                            <label for="standard" class="ride-type-label">
+                                <span class="ride-type-icon">🚲</span>
+                                <span class="ride-type-name">Standard</span>
+                                <span class="ride-type-price">₦200</span>
+                            </label>
+
+                            <input type="radio" id="express" name="rideType" value="Express">
+                            <label for="express" class="ride-type-label">
+                                <span class="ride-type-icon">⚡</span>
+                                <span class="ride-type-name">Express</span>
+                                <span class="ride-type-price">₦800</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Price Display -->
+                    <div class="price-display">
+                        <span class="price-label">Estimated Fare</span>
+                        <span class="price-amount" id="priceAmount">₦200</span>
+                    </div>
+
+                    <!-- Book Button -->
+                    <button class="book-button" id="bookBtn">Book Ride Now</button>
+                </div>
+            </section>
+
+            <!-- Active Rides Section -->
+            <section class="active-rides">
+                <h2 class="section-title">Your Active Rides</h2>
+                <div class="rides-container" id="ridesContainer">
+                    <div class="empty-state">
+                        <span class="empty-icon">🚗</span>
+                        <p>No active rides. Book one to get started!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Rides Section -->
+            <section class="recent-rides">
+                <h2 class="section-title">Recent Rides</h2>
+                <div class="rides-list" id="ridesList">
+                    <div class="ride-item">
+                        <div class="ride-info">
+                            <div class="ride-route">
+                                <span class="from-to">Main Gate → Library</span>
+                                <span class="ride-time">Today, 2:30 PM</span>
+                            </div>
+                            <span class="ride-price">₦500</span>
+                        </div>
+                        <span class="ride-status completed">Completed</span>
+                    </div>
+                    <div class="ride-item">
+                        <div class="ride-info">
+                            <div class="ride-route">
+                                <span class="from-to">Female Hostel → Admin Building</span>
+                                <span class="ride-time">Yesterday, 10:15 AM</span>
+                            </div>
+                            <span class="ride-price">₦700</span>
+                        </div>
+                        <span class="ride-status completed">Completed</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Notification Container -->
+        <div class="notification" id="notification"></div>
+
+        <!-- Modal for Ride Confirmation -->
+        <div class="modal" id="confirmModal">
+            <div class="modal-content">
+                <button class="modal-close" id="closeModal">&times;</button>
+                <h2>Confirm Your Booking</h2>
+                <div class="modal-details">
+                    <div class="detail-row">
+                        <span class="detail-label">From:</span>
+                        <span class="detail-value" id="modalPickup">-</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">To:</span>
+                        <span class="detail-value" id="modalDestination">-</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Date & Time:</span>
+                        <span class="detail-value" id="modalDateTime">-</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Passengers:</span>
+                        <span class="detail-value" id="modalPassengers">-</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Ride Type:</span>
+                        <span class="detail-value" id="modalRideType">-</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Total Fare:</span>
+                        <span class="detail-value fare" id="modalFare">-</span>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="button secondary" id="cancelBtn">Cancel</button>
+                    <button class="button primary" id="confirmBtn">Confirm Booking</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
