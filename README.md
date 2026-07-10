@@ -1,2 +1,2 @@
-# keke-ride
-An application that can help students book local rides in their campus
+# 	•	BU-KEKS
+Designed and developed a campus transportation booking web application that allows students to request Babcock University's tricycles (kekes) for pickup and drop-off at their exact locations. The solution addresses the challenge of students having to walk significant distances to access campus transportation, making mobility more convenient and efficient. I built the website using HTML,CSS and JavaScript.
